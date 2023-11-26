@@ -1,12 +1,11 @@
 package runners;
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @CucumberOptions(
 
- //     tags = "@smoke",
+    tags = "@smoke and @story1",
       features = "src/test/resources/features",
       glue = "stepDefinitions",
       publish = true,
@@ -15,7 +14,7 @@ import org.junit.runner.RunWith;
                "html:target/cucumber-report/report.html"
       }
       ,stepNotifications = true
-//    ,dryRun = true
+//     ,dryRun = true
 
 )
 
