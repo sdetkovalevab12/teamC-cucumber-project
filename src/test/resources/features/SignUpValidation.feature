@@ -4,7 +4,7 @@ Feature: Validation of Sing Up input fields
   Background:
   Given The user clicks on the sign up link
 
-  Scenario: Validating First Name Field
+    Scenario: Validating First Name Field
     Then The user sees that "First name" field has clear label, displayed and required
     And "First name" field accepts only letters and spaces
     And "First name" field has maximum length of 50 characters
