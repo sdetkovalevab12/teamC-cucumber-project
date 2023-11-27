@@ -17,5 +17,13 @@ public class SignInPage {
     @FindBy(xpath="//a[@href='register.php']")
     private WebElement signUpButton;
 
+    @FindBy(id="exampleInputEmail1")
+    private WebElement email;
+
+//    @FindBy(id="exampleInputPassword1")
+//    private WebElement password;
+
+
+
 
 }

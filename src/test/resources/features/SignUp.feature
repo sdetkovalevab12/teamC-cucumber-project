@@ -24,7 +24,7 @@ Feature: Sing Up as a new user
     When the user enters already existing email address
     And the user click the Sign Up button
     Then "This email already used" message should be displayed
-  @test
+
   Scenario: "Already have an account? Sign in" link
     And "Already have an account?" message should be displayed
     When the user click "Sign in" link

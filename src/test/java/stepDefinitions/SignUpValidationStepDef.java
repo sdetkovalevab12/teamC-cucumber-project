@@ -3,11 +3,13 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import pages.SignInPage;
 import pages.SignUpPage;
 import utils.ConfigReader;
+import utils.Driver;
 
 public class SignUpValidationStepDef {
 
