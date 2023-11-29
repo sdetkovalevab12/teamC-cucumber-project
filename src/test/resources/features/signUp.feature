@@ -1,2 +1,2 @@
-#Feature:
-  #Scenario:
+Feature:
+  Scenario:
