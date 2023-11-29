@@ -1,12 +1,11 @@
 package runners;
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @CucumberOptions(
 
-      //tags = "@login",
+      tags = "@login",
       features = "src/test/resources/features",
       glue = "stepDefinitions",
       publish = true,
@@ -16,7 +15,6 @@ import org.junit.runner.RunWith;
       }
       ,stepNotifications = true
     //,dryRun = true
-
 )
 
 

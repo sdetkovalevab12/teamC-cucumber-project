@@ -14,6 +14,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Function;
 
 public class SeleniumUtils {
@@ -191,8 +192,19 @@ public class SeleniumUtils {
                 Driver.getDriver().switchTo().window(windowHandle);
             }
         }
-
-
     }
+
+    public static String generateRandomSequenceOfChar(int length){
+
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            char randomChar = characters.charAt(random.nextInt(characters.length()));
+            sb.append(randomChar);
+        }
+        return sb.toString();
+    }
+
 
 }
