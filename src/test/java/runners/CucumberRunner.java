@@ -5,7 +5,9 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
 
-      tags = "@login",
+      //tags = "@login",
+        tags = "@creditReport",
+
       features = "src/test/resources/features",
       glue = "stepDefinitions",
       publish = true,
