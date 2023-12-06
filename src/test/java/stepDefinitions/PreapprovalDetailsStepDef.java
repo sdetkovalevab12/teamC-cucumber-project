@@ -22,7 +22,8 @@ public class PreapprovalDetailsStepDef {
         SeleniumUtils.waitFor(1);
         Alert alert = Driver.getDriver().switchTo().alert();
         alert.accept();
-        SeleniumUtils.waitForClickablility( preapprovalDetailsPage.getDownpayment(), 5);
+        //SeleniumUtils.waitForClickablility( preapprovalDetailsPage.getDownpayment(), 5);
+        SeleniumUtils.waitFor(1);
         preapprovalDetailsPage.getDownpayment().sendKeys(String.valueOf
                 (new Random().nextInt(Integer.MAX_VALUE)));
         preapprovalDetailsPage.getNextButton().click();
