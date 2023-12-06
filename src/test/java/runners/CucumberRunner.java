@@ -5,7 +5,9 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
 
+ story-7
       tags = "@story7",
+
       features = "src/test/resources/features",
       glue = "stepDefinitions",
       publish = true,
