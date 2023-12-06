@@ -1,3 +1,4 @@
+@story3 @smoke
 Feature: Dashboard functionalities
   As a user who has applied for a mortgage with a bank,
   I want to be able to access the dashboard page of the bank's mortgage application system
@@ -20,7 +21,7 @@ Feature: Dashboard functionalities
  |link                 |url                                                                |
  |Mortgage Application | http://qa-duobank.us-east-2.elasticbeanstalk.com/mortgage.php     |
  |Application List     | http://qa-duobank.us-east-2.elasticbeanstalk.com/applications.php |
-  @story3
+
     Scenario: Loging out
     Then The user's account information should be displayed in the top right corner of the page
     When the user click on the user name

@@ -34,8 +34,8 @@ public class SignUpPage {
     @FindBy(id="register")
     private WebElement signUpButton;
 
-//   @FindBy(xpath ="//*[text()='Registration Successfull']" )
-//   private WebElement successMsg ;
+   @FindBy(xpath ="//*[text()='Registration Successfull']" )
+   private WebElement successMsg ;
 
     @FindBy(xpath ="//h4[@class='text-center mb-2']" )
     private WebElement pageHeader;

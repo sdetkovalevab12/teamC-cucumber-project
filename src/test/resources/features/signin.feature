@@ -1,3 +1,4 @@
+@story2 @smoke
 Feature: User Sign In
 
   Background:

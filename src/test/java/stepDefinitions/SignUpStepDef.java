@@ -52,6 +52,7 @@ public class SignUpStepDef {
     }
     @Then("{string} message should be displayed")
     public void registration_successful_message_should_be_displayed(String msg) {
+     //  SeleniumUtils.waitForPresenceOfElementLocated(By.xpath("//*[text()='Registration Successfull']" ),5);
          Assert.assertTrue(new SignUpPage().getMsg(msg).isDisplayed());
     }
     @Then("the user is redirected to the Sign In Page")
