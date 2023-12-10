@@ -1,4 +1,4 @@
-package stepDefinitions;
+package stepDefinitions.UI;
 
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.When;
