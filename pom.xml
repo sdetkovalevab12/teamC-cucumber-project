@@ -61,6 +61,14 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.24.2</version>
+            <scope>test</scope>
+        </dependency>
+
+
 
 
     </dependencies>
@@ -74,8 +82,8 @@
                     <version>3.2.2</version>
                     <configuration>
                         <includes>CucumberRunner.java</includes>
-<!--                        <parallel>methods</parallel>-->
-<!--                        <useUnlimitedThreads>true</useUnlimitedThreads>-->
+                        <parallel>methods</parallel>
+                        <useUnlimitedThreads>true</useUnlimitedThreads>
                     </configuration>
 
                 </plugin>

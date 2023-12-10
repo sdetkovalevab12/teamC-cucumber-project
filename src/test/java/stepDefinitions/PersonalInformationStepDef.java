@@ -31,11 +31,8 @@ public class PersonalInformationStepDef {
 //        personalInformationPage.getOption().click();
         SeleniumUtils.waitFor(1);
         personalInformationPage.getMaritalStatus1().click();
-        //  personalInformationPage.getMarried().click();
         personalInformationPage.getSearchMarried().sendKeys("Married", Keys.ENTER);
         personalInformationPage.getCellPhone().sendKeys(faker.phoneNumber().cellPhone());
-
-
         personalInformationPage.getCellPhone().sendKeys(faker.phoneNumber().cellPhone());
         new PreapprovalDetailsPage().getNextButton().click();
     }
