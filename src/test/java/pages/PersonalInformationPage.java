@@ -27,8 +27,14 @@ public class PersonalInformationPage {
     @FindBy(id="select2-b_marital-container")
     private WebElement option;
 
-    @FindBy(xpath = "//span[@data-select2-id='9']")
+    @FindBy(id="select2-b_marital-container")
     private WebElement maritalStatus1;
+
+    @FindBy(id = "select2-b_marital-result-s58p-Married")
+    private WebElement married;
+
+    @FindBy(xpath = "//input[@type=\"search\"]")
+    private WebElement searchMarried;
 
 
 

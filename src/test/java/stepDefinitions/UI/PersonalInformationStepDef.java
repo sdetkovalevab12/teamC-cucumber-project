@@ -20,7 +20,8 @@ public class PersonalInformationStepDef {
         Faker faker=new Faker();
         personalInformationPage.getFirstName().sendKeys(faker.name().firstName(), Keys.TAB,  Keys.TAB,
                 faker.name().lastName(),Keys.TAB,  Keys.TAB, faker.internet().emailAddress());
-        SeleniumUtils.waitForClickablility( personalInformationPage.getSsn(), 5);
+       // SeleniumUtils.waitForClickablility( personalInformationPage.getSsn(), 5);
+        SeleniumUtils.waitFor(1);
         personalInformationPage.getSsn().sendKeys( faker.idNumber().valid());
 
 //        Select select= new Select(personalInformationPage.getMaritalStatus());
@@ -28,9 +29,10 @@ public class PersonalInformationStepDef {
 //        select.selectByIndex(new Random().nextInt(3));
 //        personalInformationPage.getMaritalStatus().click();
 //        personalInformationPage.getOption().click();
+        SeleniumUtils.waitFor(1);
         personalInformationPage.getMaritalStatus1().click();
-        personalInformationPage.getOption().click();
-
+        personalInformationPage.getSearchMarried().sendKeys("Married", Keys.ENTER);
+        personalInformationPage.getCellPhone().sendKeys(faker.phoneNumber().cellPhone());
         personalInformationPage.getCellPhone().sendKeys(faker.phoneNumber().cellPhone());
         new PreapprovalDetailsPage().getNextButton().click();
     }

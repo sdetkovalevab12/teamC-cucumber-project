@@ -1,68 +1,71 @@
+@story7
 Feature:Employment and income details
  As a user applying for a mortgage loan,
  I want to provide my employment and income details to the bank,
  so that they can evaluate my eligibility for a loan.
 
-@story7
-Scenario:  Pre steps
-  When the user logs in into account
+
+Background:
+   When the user logs in into account
    And the user click "Mortgage Application" link
    And the user fill out all required fields on Preapproval Details Page
    And the user fill out all required fields on Personal Information Page
    And the user fill out all required fields on Expenses Page
-   Then the user click "Employment and Income" link
+
+
+Scenario: Borrower Employment Information
+ When the user is redirected to the "Employment and Income"
+ Then the Employer 1 should contain the following fileds
+  | Employer Name |
+  | Position      |
+  | City          |
+  | State         |
+  | Start Date    |
+ # |End Date       |
+
+ Scenario: Fields
+ When the user click "Next"
+ Then "This field is required." message should be displayed
+
+ Scenario: Validating fields
+ Then dropdown should have 50 states
+  And dropdown options should have two-letter abbreviations
+  And checkbox labeled 'This is my current job' should be unchecked
+
+
+Scenario: "Clear" option for Emploee
+  When the user fill out all required fields on Emploement Page
+  And the user click Clear
+  Then "This action will clear the form, would you like to continue?" message should be displayed
+ When the user click Yes!
+ Then information from section is removed
 
 
 
-#
-# Acceptance Criteria:
-#
-#Borrower Employment Information:
-#oIt should contain fields for EMPLOYER NAME, POSITION, CITY, and a
-#dropdown box for STATE, and a date picker for START DATE and END
-#DATE.
-#oEMPLOYER NAME should be a required input field.
-#oSTATE should be as dropdown list with all 50 US states and their two-
-#letter abbreviations.
-#oThe checkbox labeled "This is my current job" should be unchecked by
-#default.
-#oThe section should have a "Clear" option that displays a warning pop-
-#up about clearing the information.
-#oThe "Clear" option should only clear the information in that section, not
-#any other sections.
-#oThe user should be able to enter only valid information in each field.
-#oThe "Add another employer" button should let the user add a new
-#section for another employer's information.
-#oEach new section should contain the same fields as the first section.
-#oThe section should have a "Clear" option that displays a warning pop-
-#up about clearing the information.
-#oThe "Clear" option should only clear the information in that section, not
-#any other sections.
-#oThe user should be able to remove a section using the "Remove"
-#option.
-#Borrower Gross Monthly Employment Income section:
-#oThe section should contain fields for GROSS MONTHLY INCOME,
-#MONTHLY OVERTIME, MONTHLY BONUSES, MONTHLY COMMISSIONS,
-#MONTHLY DIVIDENDS/INTEREST, and Borrower Total Monthly Income.
-#oAll fields in this section should only accept numeric input (digits and
-#decimal points) with a maximum of two decimal places. The maximum
-#character limit for the fields should be 12 characters.
-#oGROSS MONTHLY INCOME should be a required input field.
-#oThe "Borrower Total Monthly Income" field should be automatically
-#calculated based on the other fields.
-#Additional Gross Monthly Income section:
-#oThe section should contain three sets of INCOME SOURCE dropdowns
-#and Amount fields.
-#oINCOME SOURCE dropdown should have Alimony/Child Support, Social
-#Security/Disability Income, Unemployment Benefits, Interest and
-#Dividends, VA Compensation, Royalty Payments and Other Types of
-#Income options.
-#Previous and Next Buttons:
-#oThe user should be able to navigate to other sections using the
-#"Previous" and "Next" buttons.
-#oThe "Previous" button should take the user to the previous section.
-#oThe "Next" button should take the user to the next section only if all
-#required fields are filled in.
-#oIf a required field is not filled in, the "Next" button should not navigate
-#to the next section and display an error message indicating which field
-#needs to be filled in.
+Scenario: "Add another employer" button
+ When the user click "Add another employer"
+ Then a new section for another employer's information is displayed
+ And the "Employer2" should contain the following fileds
+| Employer Name |
+| Position      |
+| City          |
+| State         |
+| Start Date    |
+|End Date       |
+
+ Scenario: "Remove" option for
+ When the user click "Add another employer"
+  Then a new section for another employer's information is displayed
+ When the user click "Remove"
+ Then the section is removed
+
+
+ Scenario Outline: Navigation  buttons
+  When the user fill out all required fields on Emploement Page
+  And  the user click "<button>"
+  Then the user is redirected to the "<section>"
+ Examples:
+  | button   | section       |
+  | Next     | Expenses      |
+  | Previous | Credit Report |
+
