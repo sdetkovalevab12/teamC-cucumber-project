@@ -1,6 +1,7 @@
 package pages;
 
 import lombok.Data;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,7 +25,15 @@ public class PreapprovalDetailsPage {
     @FindBy(xpath ="//a[@href='#next']")
     private  WebElement nextButton;
 
+    @FindBy(id="realtorinfo")
+    private  WebElement realtorName;
 
+    public void clickCheckBoxForRealtor(String str){
+       WebElement box = Driver.getDriver().findElement(By.xpath("//label[text()='"+str+"']"));
+        if(!box.isSelected()){
+           box.click();
+        }
+    }
 
 
 }
