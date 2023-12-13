@@ -1,16 +1,12 @@
 
 package utils;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 public class DBUtils {
     private static Connection connection;
     private static Statement statement;
@@ -23,9 +19,11 @@ public class DBUtils {
         try {
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
+
             e.printStackTrace();
         }
     }
+
 
     public static void close() {
         try {
@@ -39,9 +37,11 @@ public class DBUtils {
                 connection.close();
             }
         } catch (SQLException e) {
+
             e.printStackTrace();
         }
     }
+
 
     private static void executeQuery(String query) {
         try {
@@ -59,7 +59,8 @@ public class DBUtils {
             e.printStackTrace();
         }
         int result = statement.executeUpdate(query);
-        if (result == 0) {
+
+        if(result==0){
             throw new RuntimeException("Update was unsuccessful.");
         }
     }
@@ -102,10 +103,10 @@ public class DBUtils {
         return rowList;
     }
 
-    public static List<String> getColumnData(List<List<Object>> data, int columnIndex) {
-        List<String> list = new ArrayList<>();
+    public static List<String> getColumnData(List<List<Object>> data, int columnIndex){
+        List<String> list =  new ArrayList<>();
         for (List<Object> eachRow : data) {
-            list.add((String) eachRow.get(columnIndex));
+            list.add((String)eachRow.get(columnIndex));
         }
         return list;
     }
