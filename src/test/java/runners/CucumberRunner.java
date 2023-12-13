@@ -7,8 +7,9 @@ import org.junit.runner.RunWith;
 
 
    //   tags = "@story7",
+        tags= "@dbCreate",
 
-      features = "src/test/resources/features",
+      features = "src/test/resources/features/",
       glue = "stepDefinitions",
       publish = true,
       plugin = {
