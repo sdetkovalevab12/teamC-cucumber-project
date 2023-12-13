@@ -1,3 +1,4 @@
+
 package utils;
 
 import java.sql.*;
@@ -18,10 +19,12 @@ public class DBUtils {
         try {
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
+            e.printStackTrace();
+        }
     }
+
+
     public static void close() {
         try {
             if (resultSet != null) {
@@ -34,9 +37,12 @@ public class DBUtils {
                 connection.close();
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+            e.printStackTrace();
         }
     }
+
+
     private static void executeQuery(String query) {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -45,6 +51,7 @@ public class DBUtils {
             e.printStackTrace();
         }
     }
+
     public static void executeUpdate(String query) throws SQLException {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -52,10 +59,12 @@ public class DBUtils {
             e.printStackTrace();
         }
         int result = statement.executeUpdate(query);
+
         if(result==0){
             throw new RuntimeException("Update was unsuccessful.");
         }
     }
+
     public static List<List<Object>> getQueryResultAsListOfLists(String query) {
         executeQuery(query);
         List<List<Object>> rowList = new ArrayList<>();
@@ -74,6 +83,7 @@ public class DBUtils {
         }
         return rowList;
     }
+
     public static List<Map<String, Object>> getQueryResultListOfMaps(String query) {
         executeQuery(query);
         List<Map<String, Object>> rowList = new ArrayList<>();
@@ -92,6 +102,7 @@ public class DBUtils {
         }
         return rowList;
     }
+
     public static List<String> getColumnData(List<List<Object>> data, int columnIndex){
         List<String> list =  new ArrayList<>();
         for (List<Object> eachRow : data) {
@@ -99,6 +110,7 @@ public class DBUtils {
         }
         return list;
     }
+
     public static List<String> getColumnNames(String query) {
         executeQuery(query);
         List<String> columns = new ArrayList<>();
@@ -114,6 +126,7 @@ public class DBUtils {
         }
         return columns;
     }
+
     public static int getRowCount() {
         int rowCount = 0;
         try {

@@ -6,9 +6,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 
 
-   tags = "@test2",
+   //   tags = "@story7",
+        tags= "@dbCreate",
 
-      features = "src/test/resources/features",
+      features = "src/test/resources/features/",
       glue = "stepDefinitions",
       publish = true,
       plugin = {
@@ -16,7 +17,7 @@ import org.junit.runner.RunWith;
                "html:target/cucumber-report/report.html"
       }
       ,stepNotifications = true
- // ,dryRun = true
+  //,dryRun = true
 )
 
 
