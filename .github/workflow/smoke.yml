@@ -1,8 +1,9 @@
 name: Parallel Smoke GitHub Actions
 run-name: UI and DB Smoke Test
 on:
-  push:
-    branches:
+  schedule:
+    - cron: '0 * * * *'
+  branches:
       - main
 jobs:
   smoke-test-ui:
