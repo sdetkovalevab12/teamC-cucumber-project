@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 
 
    //   tags = "@story7",
-        tags= "@dbCreate",
+        tags= "@try",
+
 
       features = "src/test/resources/features/",
       glue = "stepDefinitions",
@@ -17,7 +18,7 @@ import org.junit.runner.RunWith;
                "html:target/cucumber-report/report.html"
       }
       ,stepNotifications = true
-  //,dryRun = true
+ //,dryRun = true
 )
 
 
