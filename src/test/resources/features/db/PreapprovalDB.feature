@@ -25,7 +25,9 @@ Feature: Preapproval details
     When the user logs in into account
     And the user click "Mortgage Application" link
     And the user set the realtor status field to "<choice>"
+    And the user submit the whole application
     Then the corresponding column in the "tbl_mortagage" table should be set to <number>
+    And the user is cleaned up from the database
     Examples:
     |choice | number |
     |Yes    | 1      |
@@ -33,19 +35,24 @@ Feature: Preapproval details
 
 
 
+
    @db_only
   Scenario: Unique identifier for each mortgage application
   Given each application should have a unique identifier in the "tbl_mortagage" table
 
-  @test2
+@try
   Scenario:Verify data mapping of "Preapproval Details" page
     When the user logs in into account
     And the user click "Mortgage Application" link
     Then the user fill out all required fields on Preapproval Details Page
+    And the user submit the whole application
     Then the data should be mapped correctly in the "tbl_mortagage" table
+    And the user is cleaned up from the database
 
 
 
+
+#
 #  Scenario Outline: Check data types of the columns in the "tbl_mortagage" table
 #    When the user logs in into account
 #    And the user click "Mortgage Application" link
