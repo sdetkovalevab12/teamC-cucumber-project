@@ -33,3 +33,6 @@ jobs:
 
       - name: Run Regression Tests
         run: mvn test -Dcucumber.filter.tags="@regression" -Dbrowser=chromeheadless
+
+      - name: Show the list of  folder and files inside src
+        run: ls
