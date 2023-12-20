@@ -3,7 +3,8 @@ run-name: UI and DB Smoke Test
 on:
   schedule:
     - cron: '0 * * * *'
-  branches:
+  push:
+    branches:
       - main
 jobs:
   smoke-test-ui:
