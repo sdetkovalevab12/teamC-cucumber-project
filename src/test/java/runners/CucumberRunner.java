@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 
 
    //   tags = "@story7",
-        tags= "@try",
+   //     tags= "@try",
+        tags= "@regression",
 
 
       features = "src/test/resources/features/",
